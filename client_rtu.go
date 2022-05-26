@@ -138,7 +138,7 @@ func (sf *RTUClientProvider) SendRawFrame(aduRequest []byte) (aduResponse []byte
 
 	function, functionFail := aduRequest[1], aduRequest[1]|0x80
 	bytesToRead := calculateResponseLength(aduRequest)
-	time.Sleep(sf.calculateDelay(len(aduRequest) + bytesToRead))
+	time.Sleep(sf.calculateDelay(len(aduRequest) + bytesToRead + 6))
 
 	var n int
 	var n1 int
